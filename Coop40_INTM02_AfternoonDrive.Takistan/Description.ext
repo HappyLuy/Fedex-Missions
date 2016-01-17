@@ -1,0 +1,51 @@
+
+//Respawn Settings
+Respawn = 1;
+RespawnDelay = 3;
+RespawnDialog = 0;
+respawnOnStart = 0;
+respawnTemplates[] = {"f_spectator"};
+
+//Disable Ai
+disabledAI = false;
+
+//Load Screen
+author = "Worthy Platoon Mission Design Team";
+onLoadName = "Afternoon Drive";
+onLoadMission = "Worthy Platoon - Intermission";
+loadScreen = "Graphics\SplashScreen.paa";
+
+//Overview Screen
+overviewPicture = "Graphics\SplashScreen.paa";
+overviewText = "Worthy Platoon - Intermission";
+overviewTextLocked = "Worthy Platoon - Intermission";
+
+//Admin Control Panel and Console 0 - off, 1 - logged admin, 2 - everyone
+enableDebugConsole = 1;
+
+//Mission Header
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 50;
+};
+
+
+//Respawn Templates
+class CfgRespawnTemplates
+{
+	class f_Spectator 	{onPlayerRespawn = "f_fnc_CamInit";}; 		// F3 Spectator Script
+  	class Seagull 		{onPlayerRespawn = "";}; 					//Overwrite Vanilla Seagull
+};
+
+//Components
+#include "Scripts\Spectator\config.hpp"
+
+class CfgFunctions
+{
+	class F // Defines the "owner"
+	{
+		#include "Scripts\Spectator\functions.hpp"
+	};
+};
